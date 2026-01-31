@@ -80,3 +80,17 @@ footer {
   background: #141414;
   margin-top: 40px;
 }
+.discord-btn {
+  display: inline-block;
+  background: #5865F2;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+}
