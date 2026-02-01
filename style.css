@@ -6,8 +6,9 @@
   <title>Unser Discord-Server</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Grundlayout */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body, html { width: 100%; height: 100%; overflow: hidden; }
+    body, html { width: 100%; height: 100%; overflow-x: hidden; }
 
     /* Hintergrund-Gradient */
     body {
@@ -16,27 +17,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #fff;
       text-align: center;
-      position: relative;
+      color: #fff;
       padding: 20px;
+      position: relative;
     }
 
-    /* Partikel-Hintergrund */
-    canvas#particles {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    /* Titel-Glow */
+    /* Header-Titel mit Glow */
     h1 {
       font-size: 3rem;
       margin-bottom: 20px;
       text-shadow: 0 0 10px #fff, 0 0 20px #7289da, 0 0 30px #5865f2;
-      z-index: 1;
       animation: glow 2s ease-in-out infinite alternate;
     }
     @keyframes glow {
@@ -48,40 +39,37 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
       max-width: 600px;
-      z-index: 1;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     }
 
-    a.discord-btn {
+    /* Discord-Beitreten Button */
+    .discord-btn {
       display: inline-block;
       background-color: #5865F2;
       color: #fff;
-      padding: 15px 30px;
-      border-radius: 10px;
-      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 12px;
       font-weight: 700;
       font-size: 1.2rem;
-      transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      transition: all 0.3s ease;
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      z-index: 1;
     }
-    a.discord-btn:hover {
+    .discord-btn:hover {
       background-color: #4752c4;
       transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
 
-    /* Discord Widget Container */
+    /* Discord-Widget */
     .discord-widget {
       margin-top: 40px;
-      width: 350px;
+      width: 400px;
       max-width: 90%;
       height: 500px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 5px 25px rgba(0,0,0,0.4);
-      z-index: 1;
-      position: relative;
     }
 
     /* Footer */
@@ -89,97 +77,19 @@
       margin-top: 50px;
       font-size: 0.9rem;
       opacity: 0.7;
-      z-index: 1;
     }
 
-    /* Startseite-Button */
+    /* Startseite Button */
     .home-btn {
       position: fixed;
       top: 20px;
       right: 20px;
       background-color: #ff4757;
       color: #fff;
-      padding: 12px 20px;
+      padding: 12px 25px;
       border-radius: 50px;
       font-weight: 700;
       text-decoration: none;
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      z-index: 2;
       transition: all 0.3s ease;
-      transform: translateX(100px);
-      opacity: 0;
-      animation: slideIn 1s forwards 0.5s;
-    }
-    .home-btn:hover {
-      background-color: #e84118;
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    @keyframes slideIn {
-      to { transform: translateX(0); opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-
-  <canvas id="particles"></canvas>
-
-  <!-- Startseite-Button -->
-  <a href="index.html" class="home-btn">Zur Startseite</a>
-
-  <h1>Willkommen auf unserem Discord!</h1>
-  <p>Tritt unserer Community bei und chatte live mit uns. Wir freuen uns auf dich!</p>
-
-  <a href="https://discord.gg/6QA4FBgz" target="_blank" class="discord-btn">Jetzt beitreten</a>
-
-  <div class="discord-widget">
-    <iframe src="https://discord.com/widget?id=1050489946688999454&theme=dark" 
-            width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
-
-  <footer>&copy; 2026 Dein Discord-Server</footer>
-
-  <script>
-    // Partikel-Animation
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray;
-
-    function initCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particlesArray = [];
-      for (let i = 0; i < 100; i++) {
-        particlesArray.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: Math.random() * 1 - 0.5,
-          speedY: Math.random() * 1 - 0.5
-        });
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(255,255,255,0.7)';
-        ctx.fill();
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
-        if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    window.addEventListener('resize', initCanvas);
-    initCanvas();
-    animateParticles();
-  </script>
-
-</body>
-</html>
+      z-index: 2
