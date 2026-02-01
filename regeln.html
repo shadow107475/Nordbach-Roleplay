@@ -1,36 +1,79 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Regelwerk | Norbach RP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Norbach Roleplay</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #121212;
+    color: #F5F5F5;
+  }
+  header {
+    background: url('norbach-bg.jpg') center/cover no-repeat;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #1E1E1E;
+    padding: 15px;
+  }
+  nav a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .btn-main {
+    background: #B71C1C;
+    padding: 12px 30px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+  .section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
 
 <nav>
-  <h1>Norbach RP</h1>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="regeln.html">Regelwerk</a></li>
-    <li><a href="team.html">Team</a></li>
-  </ul>
+  <a href="#about">Über Norbach</a>
+  <a href="#features">Features</a>
+  <a href="#join">Mitmachen</a>
 </nav>
 
-<section>
-  <h2>Regelwerk</h2>
-  <ul class="rules">
-    <li>Kein RDM (Random Deathmatch)</li>
-    <li>Kein VDM (Vehicle Deathmatch)</li>
-    <li>Realistisches Roleplay ist Pflicht</li>
-    <li>Respekt gegenüber allen Spielern</li>
-    <li>Anweisungen des Teams sind zu befolgen</li>
-  </ul>
+<header>
+  <h1>Willkommen bei Norbach Roleplay</h1>
+  <p>Die Community. Das Leben. Deine Stadt.</p>
+  <a href="#join" class="btn-main">Mitspielen</a>
+</header>
+
+<section id="about" class="section">
+  <h2>Über Norbach RP</h2>
+  <p>Realistisch. Fair. Intensive RP‑Erfahrung.</p>
 </section>
 
-<footer>
-  © 2026 Norbach Roleplay
-</footer>
+<section id="features" class="section">
+  <h2>Unsere Features</h2>
+  <p>Jobs, Fraktionen, Fahrzeuge und mehr …</p>
+</section>
+
+<section id="join" class="section">
+  <h2>Starte jetzt</h2>
+  <a class="btn-main" href="/join">Jetzt beitreten</a>
+</section>
 
 </body>
 </html>
