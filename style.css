@@ -6,79 +6,96 @@
 <title>Mein Discord Server</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  /* Grunddesign */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
   body {
     background: linear-gradient(135deg, #4a00e0, #8e2de2);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    overflow: hidden;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
   }
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-align: center;
+  header {
+    text-align:center;
+    padding: 30px 20px;
     animation: fadeInDown 1s ease forwards;
   }
 
+  header h1 {
+    font-size:3rem;
+    margin-bottom:10px;
+  }
+
+  main {
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap:50px;
+    padding:20px;
+    flex-wrap: wrap;
+  }
+
+  /* Discord Widget */
+  .discord-widget {
+    width: 350px;
+    height: 500px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  /* Button Container */
+  .buttons {
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+    animation: fadeInUp 1.2s ease forwards;
+  }
+
   .button {
-    background-color: #7289da;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 20px 0;
+    background-color:#7289da;
+    color:white;
+    padding:15px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
     transition: transform 0.3s, background-color 0.3s;
   }
 
   .button:hover {
-    background-color: #5b6eae;
+    background-color:#5b6eae;
     transform: scale(1.1);
-  }
-
-  /* Discord Widget Container */
-  .discord-widget {
-    width: 350px;
-    height: 500px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    animation: fadeInUp 1s ease forwards;
   }
 
   /* Animation Keyframes */
   @keyframes fadeInDown {
-    0% { opacity: 0; transform: translateY(-50px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { opacity:0; transform: translateY(-50px);}
+    100% { opacity:1; transform: translateY(0);}
   }
 
   @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { opacity:0; transform: translateY(50px);}
+    100% { opacity:1; transform: translateY(0);}
   }
 
   /* Hintergrundanimation */
   body::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%) repeat;
-    background-size: 50px 50px;
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%) repeat;
+    background-size:50px 50px;
     animation: moveBackground 20s linear infinite;
-    z-index: 0;
+    z-index:0;
+  }
+
+  .content {
+    position:relative;
+    z-index:1;
   }
 
   @keyframes moveBackground {
@@ -86,28 +103,28 @@
     100% { transform: translate(-100px,-100px); }
   }
 
-  /* Content in Vordergrund */
-  .content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Responsive */
+  @media(max-width:900px){
+    main { flex-direction: column; align-items:center; }
   }
+
 </style>
 </head>
 <body>
-  <div class="content">
+  <header class="content">
     <h1>Trete unserem Discord Server bei!</h1>
-    
-    <!-- Button zur Startseite -->
-    <a href="index.html" class="button">Zur Startseite</a>
+    <p>Hier findest du alles über unsere Community.</p>
+  </header>
 
+  <main class="content">
     <!-- Discord Widget -->
     <iframe class="discord-widget" src="https://discord.com/widget?id=1050489946688999454&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    
-    <!-- Optionaler Button zum Beitreten direkt -->
-    <a href="https://discord.gg/6QA4FBgz" target="_blank" class="button">Jetzt Beitreten</a>
-  </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="index.html" class="button">Zur Startseite</a>
+      <a href="https://discord.gg/6QA4FBgz" target="_blank" class="button">Jetzt Beitreten</a>
+    </div>
+  </main>
 </body>
 </html>
