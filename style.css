@@ -1,9 +1,9 @@
 :root {
-    --black: #030303;
-    --dark-grey: #0c0c0d;
+    --black: #050505;
+    --dark-grey: #0a0a0b;
     --accent: #00d4ff;
     --text: #ffffff;
-    --muted: #777;
+    --muted: #888;
 }
 
 body {
@@ -12,117 +12,119 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
-/* Hero Section */
+/* Hero Bereich */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at 50% 50%, #0a162b 0%, var(--black) 100%);
+    background: radial-gradient(circle at center, #0a1221 0%, var(--black) 100%);
     text-align: center;
 }
 
 .giant-title {
-    font-size: clamp(3rem, 15vw, 10rem);
+    font-size: clamp(3rem, 12vw, 9rem);
     font-weight: 900;
-    letter-spacing: -6px;
+    letter-spacing: -4px;
     margin: 0;
-    text-transform: uppercase;
 }
 
-.giant-title span { color: var(--accent); text-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+.giant-title span { color: var(--accent); }
 
-/* Icon Styling */
-.icon-box {
-    font-size: 3rem;
-    color: var(--accent);
-    margin-bottom: 25px;
-    transition: 0.3s;
+.hero-p {
+    font-size: 1.4rem;
+    color: var(--muted);
+    margin-bottom: 50px;
+    letter-spacing: 1px;
 }
 
-.f-card:hover .icon-box {
-    transform: scale(1.2) rotate(5deg);
-    text-shadow: 0 0 20px var(--accent);
+/* Buttons */
+.btn-main {
+    background: var(--accent);
+    color: #000;
+    padding: 20px 45px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.4s;
+    display: inline-block;
 }
 
-/* Feature Grid */
+.btn-main:hover {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Join Banner Sektion */
+.join-banner {
+    background: linear-gradient(90deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+    padding: 80px 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #1a1a1a;
+    margin: 100px 0;
+}
+
+.join-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.team-card {
+    background: var(--dark-grey);
+    padding: 50px 20px;
+    border-radius: 15px;
+    border: 1px solid #151515;
+    transition: 0.3s ease-in-out;
+}
+
+.team-card:hover {
+    border-color: var(--accent);
+    background: #0d0d0f;
+}
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    border: 3px solid var(--accent);
+}
+
+/* Feature Cards */
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .f-card {
-    padding: 50px 30px;
-    background: var(--dark-grey);
-    border-radius: 20px;
-    border: 1px solid #1a1a1a;
-    text-align: center;
-    transition: 0.4s;
-}
-
-.f-card:hover {
-    border-color: var(--accent);
-    background: #0f0f12;
-    transform: translateY(-10px);
-}
-
-.f-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.f-card p {
-    color: var(--muted);
-}
-
-/* Team Section */
-.team-card .member-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: #333;
-}
-
-/* Pulsierende Animation für den Join Button */
-.pulsate {
-    animation: pulse-animation 2s infinite;
-}
-
-@keyframes pulse-animation {
-    0% { box-shadow: 0 0 0 0px rgba(0, 212, 255, 0.4); }
-    100% { box-shadow: 0 0 0 25px rgba(0, 212, 255, 0); }
-}
-
-/* Footer & Banner */
-.join-banner {
-    background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
-    padding: 100px 20px;
-    border-radius: 30px;
-    text-align: center;
-    border: 1px solid #1a1a1a;
-    margin: 120px 0;
+    padding: 40px;
+    background: #0a0a0b;
+    border-radius: 15px;
+    border-left: 4px solid var(--accent);
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 70px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    margin-bottom: 80px;
+    font-weight: 800;
 }
 
 footer {
-    padding: 60px;
+    padding: 80px;
     text-align: center;
-    color: #222;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .giant-title { font-size: 4rem; letter-spacing: -2px; }
+    color: #333;
+    font-size: 0.9rem;
 }
