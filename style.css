@@ -8,29 +8,22 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
   body {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(135deg, #4a00e0, #8e2de2);
     color:white;
     min-height:100vh;
     display:flex;
     flex-direction:column;
-    overflow:hidden;
   }
 
   header {
     text-align:center;
-    padding: 40px 20px;
+    padding: 30px 20px;
     animation: fadeInDown 1s ease forwards;
   }
 
   header h1 {
     font-size:3rem;
     margin-bottom:10px;
-    text-shadow: 0 0 10px #7289da, 0 0 20px #7289da;
-  }
-
-  header p {
-    font-size:1.2rem;
-    text-shadow: 0 0 5px #ffffff50;
   }
 
   main {
@@ -43,29 +36,17 @@
     flex-wrap: wrap;
   }
 
-  /* Discord Widget mit Neon-Rahmen */
-  .discord-widget-container {
-    padding:5px;
-    border-radius:20px;
-    background: linear-gradient(45deg, #7289da, #99aab5, #7289da);
-    box-shadow: 0 0 20px #7289da, 0 0 40px #7289da50, 0 0 60px #7289da30 inset;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
+  /* Discord Widget */
   .discord-widget {
     width: 350px;
     height: 500px;
     border-radius:15px;
     overflow:hidden;
-    border:none;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease forwards;
   }
 
-  @keyframes glow {
-    0% { box-shadow: 0 0 10px #7289da, 0 0 20px #7289da50, 0 0 40px #7289da30 inset; }
-    100% { box-shadow: 0 0 25px #7289da, 0 0 50px #7289da70, 0 0 60px #7289da50 inset; }
-  }
-
-  /* Buttons mit Neon-Glow */
+  /* Button Container */
   .buttons {
     display:flex;
     flex-direction:column;
@@ -75,38 +56,18 @@
   }
 
   .button {
-    background: linear-gradient(90deg, #7289da, #99aab5);
+    background-color:#7289da;
     color:white;
     padding:15px 30px;
-    border-radius:15px;
+    border-radius:10px;
     text-decoration:none;
     font-weight:600;
-    position:relative;
-    overflow:hidden;
-    z-index:1;
-    transition: transform 0.3s;
-    text-shadow: 0 0 5px #ffffff50;
-  }
-
-  .button::before {
-    content:'';
-    position:absolute;
-    top:0; left:-100%;
-    width:100%;
-    height:100%;
-    background: rgba(255,255,255,0.2);
-    transform: skewX(-20deg);
-    transition: all 0.5s;
-    z-index:0;
-  }
-
-  .button:hover::before {
-    left:100%;
+    transition: transform 0.3s, background-color 0.3s;
   }
 
   .button:hover {
+    background-color:#5b6eae;
     transform: scale(1.1);
-    text-shadow: 0 0 10px #ffffff;
   }
 
   /* Animation Keyframes */
@@ -132,7 +93,10 @@
     z-index:0;
   }
 
-  .content { position:relative; z-index:1; }
+  .content {
+    position:relative;
+    z-index:1;
+  }
 
   @keyframes moveBackground {
     0% { transform: translate(0,0); }
@@ -143,6 +107,7 @@
   @media(max-width:900px){
     main { flex-direction: column; align-items:center; }
   }
+
 </style>
 </head>
 <body>
@@ -152,10 +117,8 @@
   </header>
 
   <main class="content">
-    <!-- Discord Widget mit Neon-Rahmen -->
-    <div class="discord-widget-container">
-      <iframe class="discord-widget" src="https://discord.com/widget?id=1050489946688999454&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    </div>
+    <!-- Discord Widget -->
+    <iframe class="discord-widget" src="https://discord.com/widget?id=1050489946688999454&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
     <!-- Buttons -->
     <div class="buttons">
