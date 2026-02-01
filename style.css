@@ -3,37 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unser Discord-Server</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Discord Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
     /* --- Grundlayout --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
     body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #5865f2, #99aab5);
+      background-color: #0d0d0d;
       color: #fff;
       text-align: center;
-      position: relative;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* --- Partikel-Hintergrund --- */
+    canvas#bgCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
 
     /* --- Header --- */
     header {
       margin-bottom: 20px;
-      animation: fadeInDown 1s ease-out forwards;
+      z-index: 2;
     }
     header h1 {
       font-size: 3rem;
-      text-shadow: 0 0 10px #fff, 0 0 20px #7289da;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
     }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes neonGlow {
+      0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff; }
+      100% { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
     }
 
     /* --- Beschreibung --- */
@@ -41,58 +51,61 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
       max-width: 600px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-      animation: fadeIn 1.5s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      color: #aaa;
+      text-shadow: 0 0 5px #00ffff;
+      z-index: 2;
     }
 
     /* --- Buttons --- */
     .btn {
       display: inline-block;
-      padding: 15px 35px;
-      border-radius: 12px;
+      padding: 15px 40px;
+      margin: 10px;
+      border-radius: 50px;
       font-weight: 700;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      z-index: 2;
     }
 
     .discord-btn {
-      background-color: #5865F2;
+      background-color: #5865f2;
       color: #fff;
     }
-    .discord-btn:hover { background-color: #4752c4; }
+    .discord-btn:hover {
+      background-color: #4752c4;
+      box-shadow: 0 0 40px #5865f2, 0 0 60px #00ffff;
+      transform: scale(1.05);
+    }
 
     .home-btn {
       position: fixed;
       top: 20px;
       right: 20px;
-      background-color: #ff4757;
+      background-color: #ff0055;
       color: #fff;
-      border-radius: 50px;
       padding: 12px 25px;
-      z-index: 10;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #ff0055;
     }
-    .home-btn:hover { background-color: #e84118; }
+    .home-btn:hover {
+      background-color: #e60044;
+      box-shadow: 0 0 40px #ff0055;
+      transform: scale(1.05);
+    }
 
     /* --- Discord Widget --- */
     .discord-widget {
       margin-top: 40px;
-      width: 400px;
+      width: 420px;
       max-width: 90%;
       height: 500px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.4);
-      animation: fadeIn 2s ease-out forwards;
+      box-shadow: 0 0 30px #00ffff;
+      z-index: 2;
     }
 
     /* --- Footer --- */
@@ -100,39 +113,27 @@
       margin-top: 50px;
       font-size: 0.9rem;
       opacity: 0.7;
-    }
-
-    /* --- Partikel Hintergrund --- */
-    canvas#particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
+      z-index: 2;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Partikel-Hintergrund -->
-  <canvas id="particles"></canvas>
+  <canvas id="bgCanvas"></canvas>
 
   <!-- Startseite Button -->
   <a href="index.html" class="btn home-btn">Zur Startseite</a>
 
   <!-- Header -->
   <header>
-    <h1>Willkommen auf unserem Discord!</h1>
+    <h1>Unsere Discord Community</h1>
   </header>
 
   <!-- Beschreibung -->
-  <p class="description">
-    Tritt unserer Community bei und chatte live mit uns. Wir freuen uns auf dich!
-  </p>
+  <p class="description">Tritt unserem Discord bei und chatte live mit unserer Community. Wir freuen uns auf dich!</p>
 
-  <!-- Discord Beitreten Button -->
+  <!-- Discord Beitreten -->
   <a href="https://discord.gg/6QA4FBgz" target="_blank" class="btn discord-btn">Jetzt beitreten</a>
 
   <!-- Discord Widget -->
@@ -146,45 +147,49 @@
   <!-- Footer -->
   <footer>&copy; 2026 Dein Discord-Server</footer>
 
-  <!-- Partikel Animation -->
+  <!-- Partikel Hintergrund Script -->
   <script>
-    const canvas = document.getElementById('particles');
+    const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
-    let particles = [];
+    let lines = [];
 
-    function initParticles() {
+    function init() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      particles = [];
-      for (let i = 0; i < 80; i++) {
-        particles.push({
+      lines = [];
+      for (let i = 0; i < 50; i++) {
+        lines.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: Math.random() * 0.5 - 0.25,
-          speedY: Math.random() * 0.5 - 0.25
+          length: Math.random() * 150 + 50,
+          speedX: (Math.random() - 0.5) * 0.5,
+          speedY: (Math.random() - 0.5) * 0.5
         });
       }
     }
 
-    function animateParticles() {
+    function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
+      ctx.strokeStyle = 'rgba(0,255,255,0.2)';
+      ctx.lineWidth = 1;
+      lines.forEach(line => {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
-        ctx.fill();
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
-        if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
+        ctx.moveTo(line.x, line.y);
+        ctx.lineTo(line.x + line.length, line.y);
+        ctx.stroke();
+        line.x += line.speedX;
+        line.y += line.speedY;
+        if (line.x < -line.length) line.x = canvas.width;
+        if (line.x > canvas.width) line.x = -line.length;
+        if (line.y < 0) line.y = canvas.height;
+        if (line.y > canvas.height) line.y = 0;
       });
-      requestAnimationFrame(animateParticles);
+      requestAnimationFrame(animate);
     }
 
-    window.addEventListener('resize', initParticles);
-    initParticles();
-    animateParticles();
+    window.addEventListener('resize', init);
+    init();
+    animate();
   </script>
 
 </body>
