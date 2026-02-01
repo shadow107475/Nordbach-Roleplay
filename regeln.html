@@ -2,35 +2,43 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Norbach Roleplay</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #121212;
-    color: #F5F5F5;
-  }
-  header {
-    background: url('norbach-bg.jpg') center/cover no-repeat;
-    height: 80vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-  }
+  /* Grundlayout */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Montserrat', sans-serif; background: #121212; color: #F5F5F5; }
+
+  /* Navigation */
   nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    position: sticky; top: 0;
     background: #1E1E1E;
-    padding: 15px;
+    display: flex; justify-content: center; gap: 30px;
+    padding: 15px 0;
+    z-index: 100;
   }
   nav a {
     color: #F5F5F5;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s;
   }
+  nav a:hover { color: #B71C1C; }
+
+  /* Header */
+  header {
+    background: url('hero.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+  header h1 { font-size: 3rem; margin-bottom: 20px; }
+  header p { font-size: 1.2rem; margin-bottom: 30px; }
+
   .btn-main {
     background: #B71C1C;
     padding: 12px 30px;
@@ -38,11 +46,35 @@
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
-    margin-top: 20px;
+    transition: background 0.3s;
   }
-  .section {
+  .btn-main:hover { background: #8A1414; }
+
+  /* Sektionen */
+  section {
     padding: 60px 20px;
     text-align: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  section h2 { font-size: 2rem; margin-bottom: 20px; }
+  section p { font-size: 1rem; line-height: 1.6; color: #ccc; }
+
+  /* Footer */
+  footer {
+    background: #1E1E1E;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  footer p { font-size: 0.9rem; color: #aaa; }
+  footer a { color: #B71C1C; text-decoration: none; margin: 0 10px; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    nav { flex-direction: column; gap: 10px; }
   }
 </style>
 </head>
@@ -56,24 +88,32 @@
 
 <header>
   <h1>Willkommen bei Norbach Roleplay</h1>
-  <p>Die Community. Das Leben. Deine Stadt.</p>
-  <a href="#join" class="btn-main">Mitspielen</a>
+  <p>Realistisch. Fair. Intensive RP-Erfahrung in deiner Stadt.</p>
+  <a href="#join" class="btn-main">Jetzt Mitspielen</a>
 </header>
 
-<section id="about" class="section">
+<section id="about">
   <h2>Über Norbach RP</h2>
-  <p>Realistisch. Fair. Intensive RP‑Erfahrung.</p>
+  <p>Norbach Roleplay bietet eine immersive Erfahrung für alle Spieler. Unsere Community legt Wert auf realistische Interaktionen, spannende Missionen und freundliche Mitspieler.</p>
 </section>
 
-<section id="features" class="section">
+<section id="features">
   <h2>Unsere Features</h2>
-  <p>Jobs, Fraktionen, Fahrzeuge und mehr …</p>
+  <p>Jobs, Fraktionen, Fahrzeuge, Events und vieles mehr erwarten dich. Jeder findet hier seinen Platz, egal ob Einsteiger oder erfahrener Spieler.</p>
 </section>
 
-<section id="join" class="section">
+<section id="join">
   <h2>Starte jetzt</h2>
-  <a class="btn-main" href="/join">Jetzt beitreten</a>
+  <p>Werde Teil der Norbach RP Community und entdecke die Stadt in deinem Tempo.</p>
+  <a href="/join" class="btn-main">Jetzt beitreten</a>
 </section>
+
+<footer>
+  <p>&copy; 2026 Norbach Roleplay | 
+    <a href="#">Discord</a> | 
+    <a href="#">Forum</a>
+  </p>
+</footer>
 
 </body>
 </html>
