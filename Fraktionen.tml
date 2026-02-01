@@ -8,26 +8,73 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-logo">NORDBACH<span>RP</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="fraktionen.html" class="active">Fraktionen</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="https://discord.gg/6QA4FBgz" class="nav-btn">Discord</a></li>
         </ul>
     </nav>
 
     <div class="main-wrapper">
         <section class="section">
-            <h2 class="section-title">UNSERE FRAKTIONEN</h2>
+            <h2 class="section-title">STAATLICHE ORGANE</h2>
             <div class="feature-grid">
                 <div class="f-card">
-                    <div class="icon-box"><i class="fas fa-shield-halved"></i></div>
+                    <div class="icon-box"><i class="fas fa-handcuffs"></i></div>
                     <h3>LSPD</h3>
-                    <p>Werde Teil der Exekutive und sorge für Sicherheit.</p>
+                    <p>Sorge für Sicherheit im Staat. Streifenfahrten, Ermittlungen und Festnahmen gehören zu deinem Alltag.</p>
+                    <span class="status">Bewerbung offen</span>
                 </div>
+
+                <div class="f-card">
+                    <div class="icon-box"><i class="fas fa-fire-extinguisher"></i></div>
+                    <h3>Berufsfeuerwehr</h3>
+                    <p>Brandbekämpfung und technische Hilfeleistung. Wenn es brennt, bist du der Erste am Einsatzort.</p>
+                    <span class="status">Bewerbung offen</span>
                 </div>
+
+                <div class="f-card">
+                    <div class="icon-box"><i class="fas fa-truck-medical"></i></div>
+                    <h3>Rettungsdienst</h3>
+                    <p>Als Notfallsanitäter rettest du Leben. Jeder Herzschlag zählt – bist du bereit für den Einsatz?</p>
+                    <span class="status">Dringend gesucht</span>
+                </div>
+            </div>
         </section>
+
+        <section class="section">
+            <h2 class="section-title">WIRTSCHAFT & GEWERBE</h2>
+            <div class="feature-grid">
+                <div class="f-card">
+                    <div class="icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <h3>Mechaniker (Benny's)</h3>
+                    <p>Vom Ölwechsel bis zum High-End Tuning. Halte die Autos der Stadt in Schuss oder bau die krassesten Kisten.</p>
+                    <span class="status">Bewerbung offen</span>
+                </div>
+
+                <div class="f-card">
+                    <div class="icon-box"><i class="fas fa-scale-balanced"></i></div>
+                    <h3>Justiz</h3>
+                    <p>Verteidige Bürger vor Gericht oder sorge als Staatsanwalt für gerechte Urteile.</p>
+                    <span class="status">Coming Soon</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="join-banner">
+            <h2>Interesse an einer Fraktion?</h2>
+            <p>Komm in unseren Discord und bewirb dich in den entsprechenden Kanälen.</p>
+            <a href="https://discord.gg/6QA4FBgz" class="btn-main">ZUM DISCORD</a>
+        </div>
     </div>
+
+    <footer>
+        <p>NORDBACH ROLEPLAY &copy; 2026</p>
+    </footer>
+
 </body>
 </html>
