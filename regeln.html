@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Norbach Roleplay</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
   /* Grundlayout */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Montserrat', sans-serif; background: #121212; color: #F5F5F5; }
+  body { font-family: 'Montserrat', sans-serif; background: #121212; color: #F5F5F5; scroll-behavior: smooth; }
+  a { text-decoration: none; }
 
   /* Navigation */
   nav {
@@ -20,11 +22,10 @@
   }
   nav a {
     color: #F5F5F5;
-    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: all 0.3s;
   }
-  nav a:hover { color: #B71C1C; }
+  nav a:hover { color: #B71C1C; transform: scale(1.1); }
 
   /* Header */
   header {
@@ -35,9 +36,19 @@
     align-items: center;
     text-align: center;
     color: #fff;
+    overflow: hidden;
+    position: relative;
   }
-  header h1 { font-size: 3rem; margin-bottom: 20px; }
-  header p { font-size: 1.2rem; margin-bottom: 30px; }
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 2s ease forwards;
+  }
+  header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 2s ease forwards;
+  }
 
   .btn-main {
     background: #B71C1C;
@@ -46,17 +57,22 @@
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s;
+    transition: all 0.3s;
   }
-  .btn-main:hover { background: #8A1414; }
+  .btn-main:hover { background: #8A1414; transform: scale(1.05); }
 
   /* Sektionen */
   section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
     max-width: 1200px;
     margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
   }
+  section.visible { opacity: 1; transform: translateY(0); }
+
   section h2 { font-size: 2rem; margin-bottom: 20px; }
   section p { font-size: 1rem; line-height: 1.6; color: #ccc; }
 
@@ -68,8 +84,12 @@
     margin-top: 40px;
   }
   footer p { font-size: 0.9rem; color: #aaa; }
-  footer a { color: #B71C1C; text-decoration: none; margin: 0 10px; }
-  footer a:hover { text-decoration: underline; }
+  footer a { color: #B71C1C; margin: 0 10px; transition: all 0.3s; }
+  footer a:hover { color: #fff; }
+
+  /* Animation Keyframes */
+  @keyframes fadeInDown { 0% {opacity:0; transform: translateY(-50px);} 100% {opacity:1; transform: translateY(0);} }
+  @keyframes fadeInUp { 0% {opacity:0; transform: translateY(50px);} 100% {opacity:1; transform: translateY(0);} }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -84,6 +104,7 @@
   <a href="#about">Über Norbach</a>
   <a href="#features">Features</a>
   <a href="#join">Mitmachen</a>
+  <a href="#social"><i class="fab fa-discord"></i> Discord</a>
 </nav>
 
 <header>
@@ -108,12 +129,31 @@
   <a href="/join" class="btn-main">Jetzt beitreten</a>
 </section>
 
+<section id="social">
+  <h2>Folge uns</h2>
+  <p>Verbinde dich mit uns über Discord, Foren und Social Media.</p>
+  <a href="#"><i class="fab fa-discord"></i> Discord</a>
+  <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+</section>
+
 <footer>
   <p>&copy; 2026 Norbach Roleplay | 
     <a href="#">Discord</a> | 
     <a href="#">Forum</a>
   </p>
 </footer>
+
+<script>
+  // Sektionen beim Scroll sichtbar machen
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
