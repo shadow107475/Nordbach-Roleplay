@@ -14,20 +14,21 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: #0d0d0d;
+      background-color: #0a0a0a; /* dunkler Hintergrund */
       color: #fff;
       text-align: center;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* --- Partikel-Hintergrund --- */
+    /* --- Partikel/Linien-Hintergrund --- */
     canvas#bgCanvas {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
+      background-color: #0a0a0a; /* dunkler Hintergrund */
     }
 
     /* --- Header --- */
@@ -37,13 +38,13 @@
     }
     header h1 {
       font-size: 3rem;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      color: #00fff0;
+      text-shadow: 0 0 10px #00fff0, 0 0 20px #00fff0, 0 0 40px #00fff0;
       animation: neonGlow 1.5s ease-in-out infinite alternate;
     }
     @keyframes neonGlow {
-      0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff; }
-      100% { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
+      0% { text-shadow: 0 0 10px #00fff0, 0 0 20px #00fff0, 0 0 40px #00fff0; }
+      100% { text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0, 0 0 60px #00fff0; }
     }
 
     /* --- Beschreibung --- */
@@ -52,7 +53,7 @@
       margin-bottom: 30px;
       max-width: 600px;
       color: #aaa;
-      text-shadow: 0 0 5px #00ffff;
+      text-shadow: 0 0 5px #00fff0;
       z-index: 2;
     }
 
@@ -76,7 +77,7 @@
     }
     .discord-btn:hover {
       background-color: #4752c4;
-      box-shadow: 0 0 40px #5865f2, 0 0 60px #00ffff;
+      box-shadow: 0 0 40px #5865f2, 0 0 60px #00fff0;
       transform: scale(1.05);
     }
 
@@ -84,15 +85,15 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background-color: #ff0055;
+      background-color: #ff0066;
       color: #fff;
       padding: 12px 25px;
       border-radius: 50px;
-      box-shadow: 0 0 20px #ff0055;
+      box-shadow: 0 0 20px #ff0066;
     }
     .home-btn:hover {
-      background-color: #e60044;
-      box-shadow: 0 0 40px #ff0055;
+      background-color: #e60055;
+      box-shadow: 0 0 40px #ff0066;
       transform: scale(1.05);
     }
 
@@ -104,7 +105,7 @@
       height: 500px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 30px #00ffff;
+      box-shadow: 0 0 30px #00fff0;
       z-index: 2;
     }
 
@@ -170,7 +171,7 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = 'rgba(0,255,255,0.2)';
+      ctx.strokeStyle = 'rgba(0,255,255,0.15)';
       ctx.lineWidth = 1;
       lines.forEach(line => {
         ctx.beginPath();
