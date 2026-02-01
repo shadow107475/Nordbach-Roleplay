@@ -24,3 +24,26 @@
         </div>
     </div>
 </section>
+</div>
+
+    <footer>
+        <p>NORDBACH ROLEPLAY &copy; 2026 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const accordions = document.querySelectorAll('.accordion-header');
+        
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                // Schließt andere offene Items (optional, für bessere Übersicht)
+                // accordions.forEach(other => {
+                //    if(other !== acc) other.parentElement.classList.remove('active');
+                // });
+
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
