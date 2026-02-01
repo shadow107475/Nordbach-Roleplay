@@ -1,46 +1,73 @@
-<section class="section">
-    <h2 class="section-title">SERVER REGELWERK</h2>
-    
-    <div class="accordion">
-        <div class="accordion-item">
-            <button class="accordion-header">§1. Allgemeine Verhaltensregeln <i class="fas fa-chevron-down"></i></button>
-            <div class="accordion-content">
-                <p>Respektvoller Umgang miteinander ist Pflicht. Beleidigungen, Rassismus oder Sexismus führen zum sofortigen Ausschluss.</p>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordbach RP | Regelwerk</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
 
-        <div class="accordion-item">
-            <button class="accordion-header">§2. RDM & VDM <i class="fas fa-chevron-down"></i></button>
-            <div class="accordion-content">
-                <p>Random Deathmatch (RDM) und Vehicle Deathmatch (VDM) sind strengstens untersagt. Jede aggressive Handlung benötigt einen RP-Hintergrund.</p>
-            </div>
-        </div>
+    <nav class="navbar">
+        <div class="nav-logo">NORDBACH<span>RP</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fraktionen.html">Fraktionen</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="regeln.html" class="active">Regeln</a></li>
+            <li><a href="https://discord.gg/6QA4FBgz" class="nav-btn">Discord</a></li>
+        </ul>
+    </nav>
 
-        <div class="accordion-item">
-            <button class="accordion-header">§3. New Life Rule (NLR) <i class="fas fa-chevron-down"></i></button>
-            <div class="accordion-content">
-                <p>Wenn dein Charakter stirbt, vergisst er alle Informationen aus der vorherigen Situation. Du darfst den Ort des Geschehens für 15 Minuten nicht betreten.</p>
+    <div class="main-wrapper">
+        <section class="section">
+            <h2 class="section-title animate__animated animate__fadeInDown">SERVER REGELWERK</h2>
+            <p style="text-align: center; color: var(--muted); margin-bottom: 50px;">Bitte lies dir die Regeln aufmerksam durch. Unwissenheit schützt vor Strafe nicht.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item animate__animated animate__fadeInUp">
+                    <button class="accordion-header">§1. ALLGEMEINES VERHALTEN <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Respektvoller Umgang ist das A und O. Jegliche Form von Diskriminierung, Rassismus oder Beleidigung OOC (Out of Character) führt zum permanenten Ausschluss.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <button class="accordion-header">§2. RDM & VDM <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Sinnloses Töten (Random Deathmatch) oder Überfahren (Vehicle Deathmatch) ohne RP-Hintergrund ist verboten. Gewalt muss immer die letzte Instanz einer Situation sein.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <button class="accordion-header">§3. META-GAMING <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Informationen, die du außerhalb des Spiels (z.B. Discord, Stream) erhältst, darf dein Charakter im Spiel nicht wissen oder verwenden.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <button class="accordion-header">§4. NEW LIFE RULE (NLR) <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Wenn du stirbst, vergisst dein Charakter die gesamte vorangegangene Situation. Du darfst für 15 Minuten nicht an den Ort des Geschehens zurückkehren.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
-</section>
-</div>
 
     <footer>
-        <p>NORDBACH ROLEPLAY &copy; 2026 | All Rights Reserved</p>
+        <p>NORDBACH ROLEPLAY &copy; 2026 | Dein Leben. Deine Story.</p>
     </footer>
 
     <script>
-        const accordions = document.querySelectorAll('.accordion-header');
-        
-        accordions.forEach(acc => {
-            acc.addEventListener('click', function() {
-                // Schließt andere offene Items (optional, für bessere Übersicht)
-                // accordions.forEach(other => {
-                //    if(other !== acc) other.parentElement.classList.remove('active');
-                // });
-
-                this.parentElement.classList.toggle('active');
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionItem = button.parentElement;
+                accordionItem.classList.toggle('active');
             });
         });
     </script>
