@@ -147,3 +147,37 @@ footer {
 .section-title {
     margin-top: 40px;
 }
+/* Status Badge - Deutlich sichtbar */
+.status {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* Farbe für "Offen" (Cyan/Blau) */
+.status.open {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+/* Farbe für "Dringend" (Rot/Orange) */
+.status.urgent {
+    background: rgba(255, 68, 68, 0.15);
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+}
+
+/* Wenn die Maus über die Karte fährt, leuchtet der Status mehr */
+.f-card:hover .status {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
