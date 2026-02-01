@@ -94,3 +94,15 @@ footer {
 .discord-btn:hover {
   background: #4752c4;
 }
+.discord-widget {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.discord-widget iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  max-width: 100%;
+}
+
