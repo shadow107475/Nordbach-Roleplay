@@ -92,4 +92,85 @@
       text-decoration: none;
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
-      z-index: 2
+      z-index: 2;
+    }
+    .home-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      background-color: #e84118;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    /* Partikel-Hintergrund (dezent) */
+    canvas#particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <!-- Startseite-Button -->
+  <a href="index.html" class="home-btn">Zur Startseite</a>
+
+  <h1>Willkommen auf unserem Discord!</h1>
+  <p>Tritt unserer Community bei und chatte live mit uns. Wir freuen uns auf dich!</p>
+
+  <a href="https://discord.gg/6QA4FBgz" target="_blank" class="discord-btn">Jetzt beitreten</a>
+
+  <div class="discord-widget">
+    <iframe src="https://discord.com/widget?id=1050489946688999454&theme=dark" 
+            width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <footer>&copy; 2026 Dein Discord-Server</footer>
+
+  <script>
+    // Dezente Partikel-Animation
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particlesArray = [];
+      for (let i = 0; i < 80; i++) {
+        particlesArray.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 3 + 1,
+          speedX: Math.random() * 0.5 - 0.25,
+          speedY: Math.random() * 0.5 - 0.25
+        });
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
+        if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    animateParticles();
+  </script>
+
+</body>
+</html>
